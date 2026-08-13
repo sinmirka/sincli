@@ -1,4 +1,4 @@
-from pyfiglet import Figlet, FigletFont
+from pyfiglet import Figlet
 from configparser import ConfigParser
 
 config = ConfigParser()
