@@ -1,5 +1,5 @@
 from pyfiglet import Figlet, FigletFont
-from presets import presets, DEFAULT_FONT
+from sincli.format.presets import presets, DEFAULT_FONT
 
 
 class Formatter:
