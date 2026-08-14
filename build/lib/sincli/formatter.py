@@ -10,7 +10,7 @@ class Formatter:
         print("\033[39m", end="")
 
     def _line_gradient(self, line: str, start_color: tuple, end_color: tuple) -> str:
-        """"""
+        """Returns a gradient variant of string. Only one line supported."""
         result = ""
         for i, char in enumerate(line):
             t = i / max(len(line) - 1, 1)
@@ -20,14 +20,14 @@ class Formatter:
             result += f"\033[38;2;{r};{g};{b}m{char}"
         return result
 
-    def format_string(self, string: str, font: str = None) -> str:
+    def format_string(self, string: str, font: str | None = None) -> str:
         """Returns a formatted string."""
-        if not font:
+        if font is None:
             font = self.default_font
         figlet = Figlet(font=font)
         return figlet.renderText(string)
 
-    def gradient_string(self, string, start_color, end_color):
+    def gradient_string(self, string: str, start_color: tuple, end_color: tuple):
         """Returns a gradient variant of string. Supports multiple lines."""
         lines = string.strip().split("\n")
         result = []
