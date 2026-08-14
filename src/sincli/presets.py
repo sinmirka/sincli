@@ -2,7 +2,7 @@ DEFAULT_FONT = "ansi_shadow"
 
 presets = {
     "rose": {"start_color": (255, 175, 189), "end_color": (255, 195, 160)},
-    "purple": {"start_color": (204, 43, 94), "end_color": (117, 58, 136)},
+    "doppler": {"start_color": (204, 43, 94), "end_color": (117, 58, 136)},
     "pink": {"start_color": (238, 156, 167), "end_color": (255, 221, 225)},
     "mauve": {"start_color": (66, 39, 90), "end_color": (115, 75, 109)},
     "gray": {"start_color": (189, 195, 199), "end_color": (44, 62, 80)},
