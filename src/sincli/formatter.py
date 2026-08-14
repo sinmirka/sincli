@@ -26,7 +26,6 @@ class Formatter:
             result += f"\033[38;2;{r};{g};{b}m{char}"
         return result
 
-
     def get_fonts(self, normalize: bool = False):
         """Returns list of FIGlet fonts by default. User 'normalize' parameter to remove brackets"""
         fonts = FigletFont.getFonts()
