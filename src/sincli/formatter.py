@@ -1,9 +1,11 @@
 from pyfiglet import Figlet, FigletFont
+from presets import presets, DEFAULT_FONT
 
 
 class Formatter:
     def __init__(self):
-        self.default_font = "ansi_shadow"
+        self.default_font = DEFAULT_FONT
+        self.presets = presets
 
     def _reset_color(self):
         """Sets all future outputs color to default."""
@@ -27,7 +29,7 @@ class Formatter:
         return result
 
     def get_fonts(self, normalize: bool = False):
-        """Returns list of FIGlet fonts by default. User 'normalize' parameter to remove brackets"""
+        """Returns list of FIGlet fonts by default. Use 'normalize' parameter to remove brackets."""
         fonts = FigletFont.getFonts()
 
         if normalize:
@@ -49,13 +51,22 @@ class Formatter:
     def gradient_string(
         self,
         string: str,
-        start_color: tuple[int, int, int],
-        end_color: tuple[int, int, int],
+        start_color: tuple[int, int, int] = None,
+        end_color: tuple[int, int, int] = None,
+        preset: str = None,
         reset_after: bool = True,
     ) -> str:
-        """Returns a gradient variant of string. Supports multiple lines."""
+        """Returns a gradient variant of string. Supports multiple lines. Supports presets of RGB gradients."""
         lines = string.strip().split("\n")
         result = []
+
+        if preset: 
+            gradient = self.presets.get(preset)
+            if gradient is None:
+                raise ValueError("Invalid gradient preset")
+            
+            start_color = gradient.get("start_color")
+            end_color = gradient.get("end_color")
 
         for line in lines:
             result.append(
@@ -65,10 +76,3 @@ class Formatter:
             )
 
         return "\n".join(result) + ("\033[39m" if reset_after else "") # resets color
-
-
-f = Formatter()
-
-print(f.gradient_string(string=f.format_string("Putleon125"), start_color=(0, 200, 255), end_color=(0, 255, 0)))
-
-print(f.get_fonts(normalize=True))
