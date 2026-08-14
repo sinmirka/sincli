@@ -1,4 +1,4 @@
-from pyfiglet import Figlet
+from pyfiglet import Figlet, FigletFont
 
 
 class Formatter:
@@ -25,6 +25,15 @@ class Formatter:
             b = int(start_color[2] * (1 - t) + end_color[2] * t)
             result += f"\033[38;2;{r};{g};{b}m{char}"
         return result
+
+
+    def get_fonts(self, normalize: bool = False):
+        """Returns list of FIGlet fonts by default. User 'normalize' parameter to remove brackets"""
+        fonts = FigletFont.getFonts()
+
+        if normalize:
+            return ", ".join(fonts)
+        return fonts
     
 
     def format_string(
@@ -61,4 +70,6 @@ class Formatter:
 
 f = Formatter()
 
-print(f.format_string("test").strip())
+print(f.gradient_string(string=f.format_string("Putleon125"), start_color=(0, 200, 255), end_color=(0, 255, 0)))
+
+print(f.get_fonts(normalize=True))
