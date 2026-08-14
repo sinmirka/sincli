@@ -28,6 +28,7 @@ class Formatter:
             result += f"\033[38;2;{r};{g};{b}m{char}"
         return result
 
+
     def get_fonts(self, normalize: bool = False):
         """Returns list of FIGlet fonts by default. Use 'normalize' parameter to remove brackets."""
         fonts = FigletFont.getFonts()
@@ -36,7 +37,6 @@ class Formatter:
             return ", ".join(fonts)
         return fonts
     
-
     def format_string(
         self,
         string: str,
@@ -76,3 +76,21 @@ class Formatter:
             )
 
         return "\n".join(result) + ("\033[39m" if reset_after else "") # resets color
+
+    def test_presets(self):
+        for i, preset in enumerate(self.presets):
+            gradient = self.presets.get(preset)
+            start_color = gradient.get("start_color")
+            end_color = gradient.get("end_color")
+            print(f"{i + 1}. Preset: {preset}")
+            print(self.gradient_string(string="Hello, World! This is a", start_color=start_color, end_color=end_color))
+            print(
+                self.gradient_string(
+                    string=self.format_string(
+                        "TEST"
+                    ),
+                    start_color=start_color,
+                    end_color=end_color,
+                )
+            )
+            print()
