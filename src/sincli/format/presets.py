@@ -1,4 +1,29 @@
+from typing import Literal
+
 DEFAULT_FONT = "ansi_shadow"
+
+PresetName = Literal[
+    "rose",
+    "doppler",
+    "pink",
+    "mauve",
+    "gray",
+    "sunset",
+    "cherry",
+    "lush",
+    "kashmir",
+    "tranquil",
+    "wood",
+    "ocean",
+    "frost",
+    "violet",
+    "river",
+    "blood",
+    "steel",
+    "electric",
+    "venice",
+    "mystic",
+]
 
 presets = {
     "rose": {"start_color": (255, 175, 189), "end_color": (255, 195, 160)},
