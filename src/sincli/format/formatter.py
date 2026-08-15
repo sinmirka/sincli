@@ -1,5 +1,5 @@
 from pyfiglet import Figlet, FigletFont
-from sincli.format.presets import presets, DEFAULT_FONT
+from sincli.format.presets import DEFAULT_FONT, PresetName, presets
 
 
 class Formatter:
@@ -53,7 +53,7 @@ class Formatter:
         string: str,
         start_color: tuple[int, int, int] = None,
         end_color: tuple[int, int, int] = None,
-        preset: str = None,
+        preset: PresetName | None = None,
         reset_after: bool = True,
     ) -> str:
         """Returns a gradient variant of string. Supports multiple lines. Supports presets of RGB gradients."""
