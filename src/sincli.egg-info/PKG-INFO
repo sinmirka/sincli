@@ -1,6 +1,0 @@
-Metadata-Version: 2.4
-Name: sincli
-Version: 0.1.0
-Summary: Terminal text formatting and gradient utilities
-Requires-Python: >=3.10
-Requires-Dist: pyfiglet>=1.0.0

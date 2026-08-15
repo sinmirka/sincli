@@ -1,8 +1,0 @@
-pyproject.toml
-src/sincli/__init__.py
-src/sincli/formatter.py
-src/sincli.egg-info/PKG-INFO
-src/sincli.egg-info/SOURCES.txt
-src/sincli.egg-info/dependency_links.txt
-src/sincli.egg-info/requires.txt
-src/sincli.egg-info/top_level.txt
